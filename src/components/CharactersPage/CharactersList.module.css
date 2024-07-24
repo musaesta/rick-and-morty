@@ -1,0 +1,52 @@
+.list {
+  margin-top: 160px;
+  padding: 40px;
+
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 40px;
+  row-gap: 60px;
+
+  border: 10px solid var(--color-white);
+  border-radius: 20px;
+  box-shadow: var(--box-shadow);
+
+  list-style-type: none;
+}
+.list__items {
+  margin: 0 auto;
+  padding: 10px;
+  max-width: 200px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  row-gap: 20px;
+
+  background-color: var(--color-white);
+  border-radius: 5px;
+  box-shadow: var(--box-shadow);
+
+  cursor: pointer;
+}
+
+.name__person {
+  text-align: center;
+  font-size: 30px;
+}
+
+.img__person {
+  width: 100%;
+  height: 100%;
+
+  border-radius: 5px;
+
+  object-fit: contain;
+}
+
+@media (max-width: 370px) {
+  .name__person {
+    text-align: center;
+    font-size: 15px;
+  }
+}
