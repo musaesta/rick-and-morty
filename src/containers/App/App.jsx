@@ -9,6 +9,7 @@ const App = () => {
   return (
     <div className={styles.container}>
       <Header />
+
       <Routes>
         <Route path="/" element={<CharactersPage />} />
       </Routes>
