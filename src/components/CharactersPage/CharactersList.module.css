@@ -1,54 +1,81 @@
+.container {
+  margin-top: 200px;
+}
 .list {
-	padding: 40px;
+  padding: 40px;
 
-	display: grid;
-	grid-gap: 40px;
-	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-	justify-items: center;
-	border: 10px solid var(--color-white);
-	border-radius: 20px;
-	box-shadow: var(--box-shadow);
-
-	list-style-type: none;
+  display: grid;
+  grid-gap: 40px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  justify-items: center;
+  border: 10px solid var(--color-white);
+  border-radius: 20px;
+  box-shadow: var(--box-shadow);
+  background-color: var(--color-orange);
+  list-style-type: none;
 }
 .list__items {
-	padding: 10px;
-	max-width: 200px;
+  padding: 10px;
+  max-width: 200px;
 
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-	row-gap: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  row-gap: 10px;
 
-	background-color: var(--color-white);
-	border-radius: 5px;
-	box-shadow: var(--box-shadow);
+  background-color: var(--color-white);
+  border-radius: 5px;
+  box-shadow: var(--box-shadow);
 
-	cursor: pointer;
+  cursor: pointer;
+
+  transition: all 0.3s ease-out;
 }
-
+.list__items:hover {
+  transform: scale(1.1);
+}
+.link {
+  text-align: center;
+  text-decoration: none;
+  color: inherit;
+}
 .name__person {
-	text-align: center;
-	font-size: 30px;
+  font-size: 30px;
+  word-wrap: break-word;
 }
 
 .img__person {
-	width: 100%;
+  width: 100%;
 
-	border-radius: 5px;
+  border-radius: 5px;
 
-	object-fit: contain;
+  object-fit: contain;
+}
+
+@media (max-width: 660px) {
+  .container {
+    margin-top: 100px;
+  }
+}
+
+@media (max-width: 560px) {
+  .container {
+    margin-top: 70px;
+  }
 }
 
 @media (max-width: 370px) {
-	.list {
-		padding: 15px;
+  .container {
+    margin-top: 50px;
+  }
+  .list {
+    padding: 15px;
 
-		border: 5px solid var(--color-white);
-		border-radius: 20px;
-	}
-	.name__person {
-		text-align: center;
-		font-size: 15px;
-	}
+    border: 5px solid var(--color-white);
+    border-radius: 20px;
+  }
+  .name__person {
+    text-align: center;
+    font-size: 15px;
+  }
 }

@@ -5,24 +5,27 @@ import { getPageId } from "../../services/getPageId";
 import { baseUrl, characterUrl } from "../../constants/api";
 // components
 import { CharactersList } from "../../components/CharactersPage/CharactersList";
-import { Pagination } from "../../components/Pagination/Pagination";
+import { withErrorApi } from "../../hoc-helpers/withErrorApi";
 
-export const CharactersPage = () => {
+const CharactersPage = ({ setErrorApi }) => {
   const [characters, setCharacters] = useState([]);
   const [page, setPage] = useState("");
   const [prevPage, setPrevPage] = useState(null);
   const [nextPage, setNextPage] = useState(null);
+
   const getCharacters = async (url) => {
     const data = await getData(url);
     if (data) {
       const { results, info } = data;
       const { next, prev } = info;
+      setErrorApi(false);
       setNextPage(next);
       setPrevPage(prev);
       setCharacters(results);
+    } else {
+      setErrorApi(true);
     }
   };
-
   const handleClickPage = (changePage) => setPage(getPageId(changePage));
 
   useEffect(() => {
@@ -31,14 +34,13 @@ export const CharactersPage = () => {
 
   return (
     <div>
-      {characters.length > 0 ? (
-        <Pagination
-          prevPage={prevPage}
-          nextPage={nextPage}
-          handleClickPage={handleClickPage}
-        />
-      ) : null}
-      <CharactersList characters={characters} />
+      <CharactersList
+        prevPage={prevPage}
+        nextPage={nextPage}
+        handleClickPage={handleClickPage}
+        characters={characters}
+      />
     </div>
   );
 };
+export default withErrorApi(CharactersPage);

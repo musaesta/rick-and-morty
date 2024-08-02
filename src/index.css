@@ -5,6 +5,7 @@
   --color-active: #727331;
   --color-white: #fff;
   --color-blue: #37c6e5;
+  --color-orange: #f57e42;
 
   --box-shadow: 1px 10px 17px 8px rgba(96, 96, 96, 0.67);
 }
@@ -14,6 +15,5 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-
   font-family: "Concert One", sans-serif;
 }
